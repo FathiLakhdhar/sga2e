@@ -1,0 +1,59 @@
+AppBundle\Entity\Planificationcours:
+    type: entity
+    table: planificationcours
+    indexes:
+        fk_PlanificationCours_Salle1_idx:
+            columns:
+                - num_salle
+        fk_PlanificationCours_Groupe1_idx:
+            columns:
+                - num_group
+        fk_PlanificationCours_Module1_idx:
+            columns:
+                - code_mod
+    id:
+        jour:
+            type: string
+            nullable: false
+            length: 20
+            fixed: false
+            id: true
+        heureDebut:
+            type: time
+            nullable: false
+            id: true
+            column: heure_debut
+        heureFin:
+            type: time
+            nullable: false
+            id: true
+            column: heure_fin
+    oneToOne:
+        numGroup:
+            targetEntity: Groupe
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                num_group:
+                    referencedColumnName: num_group
+            orphanRemoval: false
+        codeMod:
+            targetEntity: Module
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                code_mod:
+                    referencedColumnName: code_mod
+            orphanRemoval: false
+        numSalle:
+            targetEntity: Salle
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                num_salle:
+                    referencedColumnName: num_salle
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

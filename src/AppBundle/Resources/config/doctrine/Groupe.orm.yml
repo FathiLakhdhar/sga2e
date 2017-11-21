@@ -1,0 +1,23 @@
+AppBundle\Entity\Groupe:
+    type: entity
+    table: groupe
+    id:
+        numGroup:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            column: num_group
+            generator:
+                strategy: IDENTITY
+    fields:
+        niveau:
+            type: integer
+            nullable: false
+            unsigned: false
+        specialite:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+    lifecycleCallbacks: {  }

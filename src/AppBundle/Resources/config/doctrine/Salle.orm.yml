@@ -1,0 +1,14 @@
+AppBundle\Entity\Salle:
+    type: entity
+    table: salle
+    id:
+        numSalle:
+            type: string
+            nullable: false
+            length: 8
+            fixed: false
+            id: true
+            column: num_salle
+            generator:
+                strategy: IDENTITY
+    lifecycleCallbacks: {  }

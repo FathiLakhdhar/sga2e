@@ -1,0 +1,41 @@
+AppBundle\Entity\Enseignants:
+    type: entity
+    table: enseignants
+    uniqueConstraints:
+        email_UNIQUE:
+            columns:
+                - email
+    id:
+        cin:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+        prenom:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+        email:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+        pwd:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        lastlogin:
+            type: datetime
+            nullable: true
+            column: lastLogin
+    lifecycleCallbacks: {  }

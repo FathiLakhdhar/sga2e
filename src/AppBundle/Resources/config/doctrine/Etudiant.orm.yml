@@ -1,0 +1,46 @@
+AppBundle\Entity\Etudiant:
+    type: entity
+    table: etudiant
+    indexes:
+        fk_Etudiant_Groupe1_idx:
+            columns:
+                - num_group
+    uniqueConstraints:
+        cin_UNIQUE:
+            columns:
+                - cin
+    id:
+        numCarteEtu:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            column: num_carte_etu
+            generator:
+                strategy: IDENTITY
+    fields:
+        cin:
+            type: integer
+            nullable: false
+            unsigned: false
+        nom:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+        prenom:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+    manyToOne:
+        numGroup:
+            targetEntity: Groupe
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                num_group:
+                    referencedColumnName: num_group
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

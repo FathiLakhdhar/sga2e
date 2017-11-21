@@ -1,0 +1,39 @@
+AppBundle\Entity\Module:
+    type: entity
+    table: module
+    indexes:
+        fk_Module_Enseignants_idx:
+            columns:
+                - Enseignants_cin
+    id:
+        codeMod:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            column: code_mod
+            generator:
+                strategy: IDENTITY
+    fields:
+        nomMod:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+            column: nom_mod
+        volumeHoraires:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: volume_horaires
+    manyToOne:
+        enseignantsCin:
+            targetEntity: Enseignants
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Enseignants_cin:
+                    referencedColumnName: cin
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
